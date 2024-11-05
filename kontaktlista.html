@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontaktlista Applikation</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+  <h2>SKAPA DIN KONTAKTLISTA</h2>
+
+  <h4>LÄGG TILL NY KONTAKT</h4>
+
+  <section id="skapa-kontakt">
+    <label for="kontaktNamn">NAMN:</label>
+    <input type="text" id="kontaktNamn" placeholder="Ange namn">
+    
+    <label for="telefonnummer">TELEFONNUMMER:</label>
+    <input type='tel' id="telefonnummer" placeholder="Ange telefonnummer">
+    
+    <button id="nyKontakt">SKAPA NY KONTAKT</button>
+    <button id="raderaKontaktlista">RADERA KONTAKTLISTA</button>
+  </section>
+
+<br>
+<div id="error" style="color: red;"></div>
+<br>
+
+  <h2>DIN KONTAKTLISTA:</h2>
+  <section id="kontaktLista">
+
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
