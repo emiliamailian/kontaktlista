@@ -37,12 +37,26 @@ function createButton(text, className, onClick) {
 function toggleEditContact(nameField, phoneField, editButton) {
     const isDisabled = nameField.disabled;
 
-    nameField.disabled = !isDisabled;
-    phoneField.disabled = !isDisabled;
-    editButton.textContent = isDisabled ? 'Spara' : 'Ändra';
+    if (isDisabled) {
+        // När redigering påbörjas
+        nameField.disabled = false;
+        phoneField.disabled = false;
+        editButton.textContent = 'Spara';
+    } else {
+        // När användaren försöker spara
+        const newName = nameField.value.trim();
+        const newPhone = phoneField.value.trim();
 
-    if (!isDisabled) {
-        validateContactFields(nameField, phoneField);
+        // Kontrollera om fälten är tomma eller ogiltiga
+        if (!newName || !newPhone || isNaN(newPhone) || newPhone.includes(" ")) {
+            showError(`Fyll i ${!newName ? 'namn' : 'telefonnummer'} och se till att telefonnumret endast innehåller siffror.`);
+        } else {
+            // Om valideringen lyckas
+            clearError();
+            nameField.disabled = true;
+            phoneField.disabled = true;
+            editButton.textContent = 'Ändra';
+        }
     }
 }
 
